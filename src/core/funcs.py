@@ -9,19 +9,19 @@ Created on Sat Jul  1 11:47:51 2023
 
 import matplotlib.pyplot as plt
 import pandas as pd
-from core.classes import Dispatcher
+from core.classes import Token
 from core.constants import MAP_KWARGS
 from pandas import DataFrame
 
 
-def read(dispatcher: Dispatcher) -> DataFrame:
+def read(token: Token) -> DataFrame:
     """
     Read Selected Files
 
     Parameters
     ----------
-    dispatcher : Dispatcher
-        kwargs Dispatcher.
+    token : Token
+        kwargs Token.
 
     Returns
     -------
@@ -29,7 +29,7 @@ def read(dispatcher: Dispatcher) -> DataFrame:
         DESCRIPTION.
 
     """
-    return pd.read_csv(**MAP_KWARGS.get(dispatcher))
+    return pd.read_csv(**MAP_KWARGS.get(token))
 
 
 def pull_by_series_id(df: DataFrame, series_id: str) -> DataFrame:

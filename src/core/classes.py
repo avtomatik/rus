@@ -9,6 +9,6 @@ Created on Sat Jul  1 12:04:10 2023
 from enum import Enum, auto
 
 
-class Dispatcher(Enum):
+class Token(Enum):
     RUS_GRIGORIEV = auto()
     RUS_IS_LM = auto()
