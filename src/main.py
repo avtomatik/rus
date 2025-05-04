@@ -5,7 +5,6 @@ Created on Wed Dec 18 21:04:02 2019
 @author: Alexander Mikhailov
 """
 
-
 from core.classes import Token
 from core.funcs import plot_rus_grigoriev, plot_rus_is_lm, read
 

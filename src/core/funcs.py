@@ -6,17 +6,16 @@ Created on Sat Jul  1 11:47:51 2023
 @author: green-machine
 """
 
-
 import matplotlib.pyplot as plt
 import pandas as pd
+
 from core.classes import Token
 from core.constants import MAP_KWARGS
-from pandas import DataFrame
 
 
-def read(token: Token) -> DataFrame:
+def read(token: Token) -> pd.DataFrame:
     """
-    Read Selected Files
+    Read Selected Files.
 
     Parameters
     ----------
@@ -25,20 +24,20 @@ def read(token: Token) -> DataFrame:
 
     Returns
     -------
-    DataFrame
+    pd.DataFrame
         DESCRIPTION.
 
     """
     return pd.read_csv(**MAP_KWARGS.get(token))
 
 
-def pull_by_series_id(df: DataFrame, series_id: str) -> DataFrame:
+def pull_by_series_id(df: pd.DataFrame, series_id: str) -> pd.DataFrame:
     """
 
 
     Parameters
     ----------
-    df : DataFrame
+    df : pd.DataFrame
         ================== =================================
         df.index           Period
         df.iloc[:, 0]      Series IDs
@@ -48,7 +47,7 @@ def pull_by_series_id(df: DataFrame, series_id: str) -> DataFrame:
 
     Returns
     -------
-    DataFrame
+    pd.DataFrame
         ================== =================================
         df.index           Period
         df.iloc[:, 0]      Series
@@ -60,17 +59,18 @@ def pull_by_series_id(df: DataFrame, series_id: str) -> DataFrame:
     )
 
 
-def plot_rus_grigoriev(df: DataFrame) -> None:
+def plot_rus_grigoriev(df: pd.DataFrame) -> None:
     for series_id in sorted(set(df.loc[:, 'series'])):
         df.pipe(pull_by_series_id, series_id).plot(grid=True)
 
 
-def plot_rus_is_lm(df: DataFrame) -> None:
+def plot_rus_is_lm(df: pd.DataFrame) -> None:
     """
-    Plotting
+    Plotting.
+
     Parameters
     ----------
-    df : DataFrame
+    df : pd.DataFrame
         DESCRIPTION.
     Returns
     -------
